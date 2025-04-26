@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <meta name="description" content="Generate strong, secure passwords easily with our free online tool. Fast, customizable, and safe for all your accounts.">
+    <meta name="keywords" content="password generator, secure passwords, strong password tool, online password generator, create password, generate password online, free password generator">
+    <meta name="robots" content="index, follow">
+  
+    <!-- Open Graph tags for social media sharing -->
+    <meta property="og:title" content="Secure Password Generator">
+    <meta property="og:description" content="Generate strong, secure passwords easily with our free online tool.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-website-link-here.com/">
+    <meta property="og:image" content="https://your-website-link-here.com/preview.png">
+  
+    <!-- Twitter Card tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Secure Password Generator">
+    <meta name="twitter:description" content="Generate strong, secure passwords online, fast and safe.">
+    <meta name="twitter:image" content="https://your-website-link-here.com/preview.png">
+  
+    <title>Secure Password Generator - Easy, Fast and Safe</title>
+  
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  
+<body>
+    
+  <div class="container">
+    <h2>Password Generator</h2>
+    
+    <!-- Dark Mode Switch -->
+    <div class="theme-switch-container">
+      <span class="theme-icon">☀️</span>
+      <label class="theme-switch">
+        <input type="checkbox" id="theme-toggle">
+        <span class="slider"></span>
+      </label>
+      <span class="theme-icon">🌙</span>
+    </div>
+    
+    <label>
+      Lungimea parolei:
+      <input type="number" id="length" min="4" max="512" value="12">
+    </label>
+    <label><input type="checkbox" id="lowercase" checked> Lowercase letters</label>
+    <label><input type="checkbox" id="uppercase" checked> Uppercase letters</label>
+    <label><input type="checkbox" id="numbers" checked> Numbers</label>
+    <label><input type="checkbox" id="symbols"> Symbols</label>
+    <button onclick="generatePassword()">Generate password</button>
+    <div class="output" id="password">—</div>
+    <button onclick="copyPassword()">Copy</button>
+    <div class="feedback" id="feedback"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
