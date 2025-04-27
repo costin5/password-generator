@@ -1,402 +1,153 @@
-/* ===== Variables and Themes ===== */
-:root {
-  --background-color: #f1f1f1;
-  --text-color: #333;
-  --container-bg: white;
-  --output-bg: #eee;
-  --button-bg: #007bff;
-  --button-hover: #0056b3;
-  --button-text: white;
-  --box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-}
-
-[data-theme="dark"] {
-  --background-color: #222;
-  --text-color: #f1f1f1;
-  --container-bg: #333;
-  --output-bg: #444;
-  --button-bg: #0056b3;
-  --button-hover: #007bff;
-  --button-text: white;
-  --box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-}
-
-/* ===== Base Elements ===== */
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: sans-serif;
-  background: var(--background-color);
-  color: var(--text-color);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-/* ===== Header and Navigation ===== */
-header {
-  width: 100%;
-  background-color: var(--container-bg);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 1);
-  border-radius: 0 0 12px 12px;
-  margin-bottom: 20px;
-  padding: 0.5rem 1rem;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.header-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  width: 100%;
-}
-
-.header-left {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-
-.logo a {
-  text-decoration: none;
-  color: var(--text-color);
-  font-size: 1.5rem;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-
-.logo a:hover {
-  color: var(--button-hover);
-}
-
-.header-nav {
-  display: flex;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.header-nav a {
-  text-decoration: none;
-  color: var(--text-color);
-  font-size: 1rem;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.header-nav a:hover {
-  color: var(--button-hover);
-}
-
-/* ===== Main Layout ===== */
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-.container {
-  background: var(--container-bg);
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: var(--box-shadow);
-  width: 100%;
-  max-width: 600px;
-  transition: background-color 0.3s, box-shadow 0.3s;
-}
-
-.container h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.info-section {
-  width: 100%;
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 2rem;
-  background: var(--container-bg);
-  border-radius: 12px;
-  box-shadow: var(--box-shadow);
-  text-align: center;
-}
-
-.info-section ul {
-  list-style-position: inside;
-  text-align: left;
-  padding-left: 0;
-  margin-top: 1rem;
-}
-
-.info-section li {
-  margin-bottom: 0.5rem;
-}
-
-/* ===== Footer ===== */
-footer {
-  width: 100%;
-  text-align: center;
-  padding: 1rem;
-  background-color: var(--container-bg);
-  box-shadow: var(--box-shadow);
-  border-radius: 12px;
-  margin-top: 20px;
-}
-
-/* ===== Links ===== */
-footer a,
-.info-section a {
-  color: rgb(18, 76, 211);
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-footer a:hover,
-.info-section a:hover {
-  color: var(--button-hover);
-  text-decoration: underline;
-}
-
-/* ===== Form Elements ===== */
-label {
-  display: block;
-  margin-top: 10px;
-}
-
-input[type="number"] {
-  width: 60px;
-  padding: 5px;
-  background-color: var(--output-bg);
-  color: var(--text-color);
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.output {
-  margin-top: 15px;
-  padding: 10px;
-  background: var(--output-bg);
-  font-family: monospace;
-  text-align: left;
-  word-break: break-all;
-  white-space: nowrap;
-  overflow-x: auto;
-  max-width: 100%;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-}
-
-button {
-  width: 100%;
-  padding: 10px;
-  margin-top: 15px;
-  background: var(--button-bg);
-  color: var(--button-text);
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background: var(--button-hover);
-}
-
-.feedback {
-  text-align: center;
-  margin-top: 10px;
-  color: green;
-}
-
-/* ===== Theme Switch ===== */
-.theme-switch-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-top: 15px;
-}
-
-.theme-switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 30px;
-  margin: 0 10px;
-}
-
-.theme-switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: .4s;
-  border-radius: 34px;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 22px;
-  width: 22px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  transition: .4s;
-  border-radius: 50%;
-}
-
-input:checked + .slider {
-  background-color: #007bff;
-}
-
-input:checked + .slider:before {
-  transform: translateX(30px);
-}
-
-.theme-icon {
-  font-size: 18px;
-}
-
-/* ===== Animations ===== */
-.typing-animation {
-  border-right: 2px solid var(--text-color);
-  animation: cursor-blink 0.7s infinite;
-}
-
-@keyframes cursor-blink {
-  0%, 100% { border-color: transparent; }
-  50% { border-color: var(--text-color); }
-}
-
-
-/* ===== Media Queries ===== */
-@media (max-width: 768px) {
-  .header-content {
-    flex-direction: column;
-    align-items: center;
-    padding: 0.5rem;
+/**
+ * Generates a random password based on user preferences
+ * Controls the character types and animates the result
+ */
+function generatePassword() {
+  // Clear previous feedback
+  document.getElementById("feedback").innerText = "";
+  document.getElementById("password").innerText = "";
+  
+  // Get password length and validate
+  const length = parseInt(document.getElementById("length").value);
+  if (isNaN(length) || length < 4) {
+    document.getElementById("password").innerText = "Minimum length is 4 characters!";
+    return;
   }
-
-  .header-left {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    width: 100%;
-  }
-
-  .header-nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    width: 100%;
-    padding: 0.5rem 0;
-  }
-
-  .header-nav a {
-    padding: 0.5rem;
-  }
-
-  .theme-switch-container {
-    margin: 0.8rem 0;
-    width: 100%;
-    justify-content: center;
-  }
-
-  /* Adjusting container sizes for mobile */
-  .container, .info-section {
-    padding: 15px;
-    width: 90%;
-  }
-
-  body {
-    padding: 10px;
-  }
-
-  /* Prevent horizontal scroll */
-  html, body {
-    max-width: 100%;
-    overflow-x: hidden;
+  if (length > 512) {
+    document.getElementById("password").innerText = "Maximum length is 512 characters!";
+    return;
   }
   
-  /* Make the header sticky on mobile */
-  header {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    max-width: 100%;
-    z-index: 1000;
-    border-radius: 0 0 8px 8px;
-    margin-left: 0;
-    margin-right: 0;
-    padding: 0.5rem;
-  }
-
-  /* Better font sizes for mobile */
-  h2 {
-    font-size: 1.5rem;
+  // Get character type preferences
+  const useLower = document.getElementById("lowercase").checked;
+  const useUpper = document.getElementById("uppercase").checked;
+  const useNumbers = document.getElementById("numbers").checked;
+  const useSymbols = document.getElementById("symbols").checked;
+  
+  // Validate at least one character type is selected
+  if (!useLower && !useUpper && !useNumbers && !useSymbols) {
+    document.getElementById("password").innerText = "Select at least one character type.";
+    return;
   }
   
-  p, li {
-    font-size: 0.95rem;
-  }
-}
-
-/* Additional fixes for very small screens */
-@media (max-width: 480px) {
-  .header-nav {
-    gap: 0.5rem;
+  // Define character sets
+  const lower = "abcdefghijklmnopqrstuvwxyz";
+  const upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const numbers = "0123456789";
+  const symbols = "!@#$%^&*()_+=-{}[]|:;<>?";
+  
+  // Build character set based on selections
+  let charset = "";
+  if (useLower) charset += lower;
+  if (useUpper) charset += upper;
+  if (useNumbers) charset += numbers;
+  if (useSymbols) charset += symbols;
+  
+  // Generate final password
+  let finalPassword = "";
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * charset.length);
+    finalPassword += charset[randomIndex];
   }
   
-  .header-nav a {
-    font-size: 0.9rem;
-    padding: 0.4rem;
+  // Clean password from special control characters
+  const cleanPassword = finalPassword.replace(/[\n\r\t]/g, "");
+  
+  // Start animation
+  animatePasswordGeneration(cleanPassword, charset);
+}
+
+/**
+ * Animates the password generation with a matrix-like effect
+ * @param {string} password - The final password to display
+ * @param {string} charset - Character set used for scrambling
+ */
+function animatePasswordGeneration(password, charset) {
+  const passwordElement = document.getElementById('password');
+  const maxIterations = 10; // Number of iterations for effect
+  let iterations = 0;
+  
+  // Fill initially with random characters of the same length
+  let initialScramble = "";
+  for (let i = 0; i < password.length; i++) {
+    initialScramble += charset.charAt(Math.floor(Math.random() * charset.length));
+  }
+  passwordElement.innerText = initialScramble;
+  
+  // Set up animation interval
+  const interval = setInterval(() => {
+    iterations++;
+    
+    let result = "";
+    for (let i = 0; i < password.length; i++) {
+      // Progressively reveal the actual password
+      if (iterations / maxIterations > i / password.length) {
+        result += password[i];
+      } else {
+        result += charset.charAt(Math.floor(Math.random() * charset.length));
+      }
+    }
+    
+    passwordElement.innerText = result;
+    
+    // End animation when complete
+    if (iterations >= maxIterations) {
+      clearInterval(interval);
+      passwordElement.innerText = password;
+      
+      // Log password details to console (for debugging)
+      console.log("Password generated:", password);
+      console.log("Character codes:");
+      for (let i = 0; i < password.length; i++) {
+        console.log(password[i], "→", password.charCodeAt(i));
+      }
+    }
+  }, 50);
+}
+
+/**
+ * Copies the generated password to clipboard
+ */
+function copyPassword() {
+  const passwordText = document.getElementById("password").innerText;
+  if (passwordText && passwordText !== "—" && !passwordText.includes("Select")) {
+    navigator.clipboard.writeText(passwordText);
+    document.getElementById("feedback").innerText = "Password copied!";
+  }
+}
+
+/**
+ * Initializes the application when DOM is loaded
+ * Sets up theme preferences and event listeners
+ */
+document.addEventListener('DOMContentLoaded', () => {
+  initializeTheme();
+});
+
+/**
+ * Initializes theme based on user preferences
+ */
+function initializeTheme() {
+  const themeToggle = document.getElementById('theme-toggle');
+  
+  // Load saved theme preference
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) {
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    themeToggle.checked = savedTheme === 'dark';
+  } else {
+    // Use system preference if no saved theme
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (prefersDarkScheme.matches) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      themeToggle.checked = true;
+    }
   }
   
-  .info-section {
-    padding: 1rem;
-  }
+  // Set up theme toggle listener
+  themeToggle.addEventListener('change', () => {
+    const newTheme = themeToggle.checked ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+  });
 }
-
-/* Fix for all screen sizes */
-header {
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-  position: sticky;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-}
-
-main {
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-}
-
-/* Ensure all elements respect the box-sizing */
-* {
-  box-sizing: border-box;
-}
-
