@@ -1,60 +1,148 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-    <meta name="description" content="Generate strong, secure passwords easily with our free online tool. Fast, customizable, and safe for all your accounts.">
-    <meta name="keywords" content="password generator, secure passwords, strong password tool, online password generator, create password, generate password online, free password generator">
-    <meta name="robots" content="index, follow">
-  
-    <!-- Open Graph tags for social media sharing -->
-    <meta property="og:title" content="Secure Password Generator">
-    <meta property="og:description" content="Generate strong, secure passwords easily with our free online tool.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://your-website-link-here.com/">
-    <meta property="og:image" content="https://your-website-link-here.com/preview.png">
-  
-    <!-- Twitter Card tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Secure Password Generator">
-    <meta name="twitter:description" content="Generate strong, secure passwords online, fast and safe.">
-    <meta name="twitter:image" content="https://your-website-link-here.com/preview.png">
-  
-    <title>Secure Password Generator - Easy, Fast and Safe</title>
-  
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Generate strong, secure passwords easily with our free online tool. Fast, customizable, and safe for all your accounts.">
+  <meta name="keywords" content="password generator, secure passwords, strong password tool, online password generator, create password, generate password online, free password generator">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph tags for social media sharing -->
+  <meta property="og:title" content="Secure Password Generator">
+  <meta property="og:description" content="Generate strong, secure passwords easily with our free online tool.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://your-website-link-here.com/">
+  <meta property="og:image" content="https://your-website-link-here.com/preview.png">
+
+  <!-- Twitter Card tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Secure Password Generator">
+  <meta name="twitter:description" content="Generate strong, secure passwords online, fast and safe.">
+  <meta name="twitter:image" content="https://your-website-link-here.com/preview.png">
+
+  <title>Secure Password Generator - Easy, Fast and Safe</title>
+
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
 <body>
-    
-  <div class="container">
-    <h2>Password Generator</h2>
-    
-    <!-- Dark Mode Switch -->
-    <div class="theme-switch-container">
-      <span class="theme-icon">☀️</span>
-      <label class="theme-switch">
-        <input type="checkbox" id="theme-toggle">
-        <span class="slider"></span>
-      </label>
-      <span class="theme-icon">🌙</span>
+  <header>
+    <div class="header-content">
+      <div class="header-left">
+        <div class="logo">
+          <a href="index.html">QuickTools</a>
+        </div>
+
+        <nav class="header-nav">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#more-tools">More Tools</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+
+      <!-- Dark Mode Switch -->
+      <div class="theme-switch-container">
+        <span class="theme-icon">☀️</span>
+        <label class="theme-switch">
+          <input type="checkbox" id="theme-toggle">
+          <span class="slider"></span>
+        </label>
+        <span class="theme-icon">🌙</span>
+      </div>
     </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h2>Password Generator</h2>
+
+      <label>
+        Password length:
+        <input type="number" id="length" min="4" max="512" value="12">
+      </label>
+      <label><input type="checkbox" id="lowercase" checked> Lowercase letters</label>
+      <label><input type="checkbox" id="uppercase" checked> Uppercase letters</label>
+      <label><input type="checkbox" id="numbers" checked> Numbers</label>
+      <label><input type="checkbox" id="symbols"> Symbols</label>
+      <button onclick="generatePassword()">Generate password</button>
+      <div class="output" id="password">—</div>
+      <button onclick="copyPassword()">Copy</button>
+      <div class="feedback" id="feedback"></div>
+    </div>
+
+    <section id="home" class="info-section">
+      <h2>Welcome to QuickTools!</h2>
+      <p>QuickTools is your go-to platform for generating strong, secure passwords quickly and easily. Protect your accounts with reliable passwords created in just seconds!</p>
+      
+      <ul>
+        <li>Fast and easy password generation</li>
+        <li>Customizable options for maximum security</li>
+        <li>Works perfectly on both desktop and mobile</li>
+        <li>Completely free to use</li>
+      </ul>
+    </section>
+
+    <section id="about" class="info-section">
+      <h2>About QuickTools</h2>
+      <p>QuickTools is a growing collection of simple, powerful online tools designed to make everyday tasks faster and easier. Our platform brings together a variety of utilities — all free and accessible — to help users with different needs, from security to productivity.</p>
     
-    <label>
-      Lungimea parolei:
-      <input type="number" id="length" min="4" max="512" value="12">
-    </label>
-    <label><input type="checkbox" id="lowercase" checked> Lowercase letters</label>
-    <label><input type="checkbox" id="uppercase" checked> Uppercase letters</label>
-    <label><input type="checkbox" id="numbers" checked> Numbers</label>
-    <label><input type="checkbox" id="symbols"> Symbols</label>
-    <button onclick="generatePassword()">Generate password</button>
-    <div class="output" id="password">—</div>
-    <button onclick="copyPassword()">Copy</button>
-    <div class="feedback" id="feedback"></div>
-  </div>
+      <p>My journey with QuickTools started by creating a secure password generator. Since then, I have been continuously expanding the library of tools. Whether you need to create strong passwords, generate random numbers, validate passwords, or produce usernames, my goal is to offer you reliable, no-fuss solutions in seconds.</p>
+
+      <p>I am committed to regularly updating and adding new tools based on real user needs and suggestions. QuickTools is meant to become a trusted go-to hub for quick, efficient, and secure online utilities — all in one place.</p>
+    </section>
+    
+    <section id="how-it-works" class="info-section">
+      <h2>How It Works</h2>
+      
+      <p>QuickTools is designed to be simple and intuitive. Each tool focuses on a specific task, so you can get exactly what you need without wasting time.</p>
+    
+      <p>Here's how it typically works:</p>
+      
+      <ul>
+        <li>Select the tool you need — password generator, random number generator, username creator, or any other available utility.</li>
+        <li>Customize your settings, such as password length, types of characters, or number range, depending on the tool you are using.</li>
+        <li>Click the generate or create button and instantly receive your results.</li>
+        <li>Copy or use the generated output right away — no downloads or registrations required.</li>
+      </ul>
+    
+      <p>Each tool is optimized for speed, simplicity, and reliability, so you can get the results you need with minimal effort.</p>
+    
+      <h3>Quick Password Security Tips</h3>
+    
+      <ul>
+        <li>Always use at least 12 characters for your passwords — longer is better.</li>
+        <li>Include a mix of lowercase letters, uppercase letters, numbers, and special symbols.</li>
+        <li>Avoid using easily guessable information like birthdays, names, or simple sequences (e.g., "123456").</li>
+        <li>Use a different password for every important account to minimize risks.</li>
+        <li>Consider using a password manager to securely store your passwords.</li>
+      </ul>
+    </section>
+
+    <section id="more-tools" class="info-section">
+      <h2>More Tools Coming Soon</h2>
+      <p>I am actively working on expanding QuickTools with more useful utilities.</p>
+    </section>
+
+    <section id="contact" class="info-section">
+      <h2>Contact</h2>
+      <p>If you have any questions, feedback, or suggestions, feel free to reach out. I am always happy to hear from you!</p>
+      
+      <p>You can contact me directly at:</p>
+    
+      <p><a href="mailto:costinmatei.cernea@gmail.com">costinmatei.cernea@gmail.com</a></p>
+    
+      <p>I do my best to respond as quickly as possible. Thank you for supporting QuickTools!</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 QuickTools • <a href="mailto:costinmatei.cernea@gmail.com">Contact</a></p>
+  </footer>
+  
   <script src="script.js"></script>
 </body>
 </html>
